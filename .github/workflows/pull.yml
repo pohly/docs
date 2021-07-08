@@ -20,5 +20,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      # The same command that users can use locally is used to build documentation.
       - name: Build documentation
         run: make
+      
+      # Publish generated site as artifact. Unfortunately viewing it requires
+      # downloading a .zip and uncompressing that (https://github.com/actions/upload-artifact/issues/14#issuecomment-620728238)
+      - uses: actions/upload-artifact@v2
+        with:
+          name: html-docs
+          path: docs
