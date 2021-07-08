@@ -31,3 +31,7 @@ jobs:
         with:
           branch: gh-pages
           folder: docs
+          # This secret was created in the repo's settings under "Secrets".
+          # It contains an SSH private key created specifically for this job.
+          # The corresponding public key was added to the repo's deploy keys.
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
